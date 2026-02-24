@@ -12,6 +12,11 @@ const Todo = () => {
    
   }
 
+  const deletNames = (index) => {
+  const del = list.filter((item, i) => i !== index);
+  listNames(del);
+};
+
   return (
     <div>
       <h1>Todo List</h1>
@@ -19,7 +24,11 @@ const Todo = () => {
       <button onClick={addNames}>Add</button>
 
       <ul>
-        {list.map((n,i)=>(<li key={i}>{n}</li>))}
+        {list.map((n,i)=>(<li key={i}>
+          {n}
+          <button onClick={()=>deletNames(i)}>dlt</button>
+
+        </li>))}
       </ul>
     </div>
   )
